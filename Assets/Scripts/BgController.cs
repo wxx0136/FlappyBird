@@ -7,13 +7,13 @@ public class BgController : MonoBehaviour
     public float setOff;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _startPosition = transform.position;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (transform.position.x < -11.4f + setOff)
         {
