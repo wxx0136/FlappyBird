@@ -8,13 +8,14 @@ public class BirdFly : MonoBehaviour
     public GameManager gameManager;
     private static readonly int State = Animator.StringToHash("state");
 
-    // Start is called before the first frame update
+    public Transform birdSpriteTransform;
+    public float rotating = 4f;
+
     private void Start()
     {
         animator.SetInteger(State, 1);
     }
 
-    // Update is called once per frame
     private void Update()
     {
         if (!gameManager.isGameStart) return;
@@ -23,6 +24,8 @@ public class BirdFly : MonoBehaviour
         {
             rb2d.velocity = new Vector2(0, 8);
         }
+
+        birdSpriteTransform.rotation = Quaternion.Euler(0, 0, rb2d.velocity.y * rotating);
     }
 
     public void ChangeState(bool isFlying)
