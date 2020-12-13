@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,8 +8,16 @@ public class GameManager : MonoBehaviour
 
     public GameObject bird;
 
-    public bool isGameReady = false;
-    public bool isGameStart = false;
+    public bool isGameReady;
+    public bool isGameStart;
+    private UIManager _uiManager;
+    private BirdFly _birdFly;
+
+    private void Start()
+    {
+        _birdFly = bird.GetComponent<BirdFly>();
+        _uiManager = tutorial.GetComponent<UIManager>();
+    }
 
     public void PlayBtnClick()
     {
@@ -28,10 +34,9 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            tutorial.GetComponent<UIManager>().HideUI();
-            bird.GetComponent<BirdFly>().ChangeState(true);
+            _uiManager.HideUI();
+            _birdFly.ChangeState(true);
             isGameStart = true;
         }
-        
     }
 }

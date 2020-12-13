@@ -1,27 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BgController : MonoBehaviour
 {
-    Vector3 start_postion;
+    private Vector3 _startPosition;
     public float speed = -0.02f;
-    public float set_off = 0f;
+    public float setOff;
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(0, 0, 0);
-        start_postion = transform.position;
+        _startPosition = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x < -11.4f + set_off)
+        if (transform.position.x < -11.4f + setOff)
         {
-            transform.position = start_postion;
+            transform.position = _startPosition;
         }
+
         transform.Translate(speed, 0, 0);
     }
 }

@@ -1,18 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using DG.Tweening;
 
 public class UIManager : MonoBehaviour
 {
     public CanvasGroup canvasGroup;
+    public float fadeTime = 0.5f;
+
     public void ShowUI()
     {
-        canvasGroup.alpha = 1f;
+        canvasGroup.DOFade(1, fadeTime);
     }
 
     public void HideUI()
     {
-        canvasGroup.DOFade()
+        canvasGroup.DOFade(0, fadeTime).onComplete = () => { gameObject.SetActive(false); };
     }
 }
