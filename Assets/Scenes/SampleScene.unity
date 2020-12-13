@@ -217,6 +217,8 @@ MonoBehaviour:
   rb2d: {fileID: 25478653}
   animator: {fileID: 700008177}
   gameManager: {fileID: 703102069}
+  birdSpriteTransform: {fileID: 700008176}
+  rotating: 4
 --- !u!1 &26611591
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,7 +795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -0.02
-  set_off: 0
+  setOff: 0
 --- !u!4 &532335191
 Transform:
   m_ObjectHideFlags: 0
@@ -1536,7 +1538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 1376537047}
-  fade_time: 0.5
+  fadeTime: 0.5
 --- !u!1 &1697090945
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,7 +1659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 1698855616}
-  fade_time: 0.5
+  fadeTime: 0.5
 --- !u!1 &1721796777
 GameObject:
   m_ObjectHideFlags: 0
@@ -1907,7 +1909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 1960396475}
-  fade_time: 0.5
+  fadeTime: 0.5
 --- !u!225 &1960396475
 CanvasGroup:
   m_ObjectHideFlags: 0

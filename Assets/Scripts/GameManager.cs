@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
         {
             _uiManager.HideUI();
             _birdFly.ChangeState(true);
+            _birdFly.Fly();
             isGameStart = true;
         }
     }

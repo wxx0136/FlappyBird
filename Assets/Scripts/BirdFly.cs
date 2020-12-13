@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using DG.Tweening;
 
 public class BirdFly : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class BirdFly : MonoBehaviour
 
     public Transform birdSpriteTransform;
     public float rotating = 4f;
+    public float birdSpeed = 6.5f;
 
     private void Start()
     {
@@ -22,11 +24,17 @@ public class BirdFly : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            rb2d.velocity = new Vector2(0, 8);
+            Fly();
         }
 
-        birdSpriteTransform.rotation = Quaternion.Euler(0, 0, rb2d.velocity.y * rotating);
+        birdSpriteTransform.transform.DORotateQuaternion(Quaternion.Euler(0, 0, rb2d.velocity.y * rotating), 0.3f);
     }
+
+    public void Fly()
+    {
+        rb2d.velocity = new Vector2(0, birdSpeed);
+    }
+
 
     public void ChangeState(bool isFlying)
     {
