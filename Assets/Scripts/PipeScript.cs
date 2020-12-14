@@ -22,9 +22,5 @@ public class PipeScript : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            RandomHeightOfPipes();
-        }
     }
 }
