@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class GameManager : MonoBehaviour
     public bool isGameStart;
     private UIManager _uiManager;
     private BirdFly _birdFly;
+
+    public Text scoreText;
 
     private void Start()
     {
@@ -43,15 +46,17 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        if(!isGameStart) return;
+        
         isGameReady = false;
         isGameStart = false;
-        
+
         GameObject.Find("PillarController").GetComponent<PillarController>().StopMove();
         GameObject.Find("bg_container").GetComponent<BgController>().isMove = false;
     }
 
     public void GetScore()
     {
-        
+        scoreText.text = (int.Parse(scoreText.text) + 1).ToString();
     }
 }
