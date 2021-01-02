@@ -5,6 +5,7 @@ public class BgController : MonoBehaviour
     private Vector3 _startPosition;
     public float speed = -0.02f;
     public float setOff;
+    public bool isMove = true;
 
     private void Start()
     {
@@ -13,6 +14,8 @@ public class BgController : MonoBehaviour
 
     private void Update()
     {
+        if (!isMove) return;
+
         if (transform.position.x < -11.4f + setOff)
         {
             transform.position = _startPosition;

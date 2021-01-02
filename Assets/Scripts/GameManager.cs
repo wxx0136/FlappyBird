@@ -40,4 +40,18 @@ public class GameManager : MonoBehaviour
             isGameStart = true;
         }
     }
+
+    public void GameOver()
+    {
+        isGameReady = false;
+        isGameStart = false;
+        
+        GameObject.Find("PillarController").GetComponent<PillarController>().StopMove();
+        GameObject.Find("bg_container").GetComponent<BgController>().isMove = false;
+    }
+
+    public void GetScore()
+    {
+        
+    }
 }

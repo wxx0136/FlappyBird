@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class PipeScript : MonoBehaviour
@@ -20,7 +21,13 @@ public class PipeScript : MonoBehaviour
             transform.rotation);
     }
 
-    public void Update()
+    private void OnCollisionEnter2D(Collision2D other)
     {
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        GameObject.Find("GameManager").GetComponent<GameManager>().GameOver();
     }
 }
