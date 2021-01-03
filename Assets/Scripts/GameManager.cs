@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayBtnClick()
     {
+        if (isGameReady) return;
         Tools.Instance.HideUI(main);
         Tools.Instance.ShowUI(tutorial);
         Tools.Instance.ShowUI(score);
