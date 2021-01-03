@@ -99,6 +99,7 @@ public class GameManager : MonoBehaviour
 
     public void GetScore()
     {
+        if (!isGameStart) return;
         scoreText.text = (int.Parse(scoreText.text) + 1).ToString();
     }
 
