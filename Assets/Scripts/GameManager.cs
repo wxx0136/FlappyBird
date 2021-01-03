@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -21,6 +22,8 @@ public class GameManager : MonoBehaviour
     public Text currentScoreText;
     public Text bestScoreText;
     public GameObject newScore;
+    public Image medal;
+    public List<Sprite> medals;
 
     private void Start()
     {
@@ -66,6 +69,24 @@ public class GameManager : MonoBehaviour
         Tools.Instance.HideUI(score);
 
         var i = int.Parse(scoreText.text);
+
+        if (i >= 15)
+        {
+            medal.sprite = medals[3];
+        }
+        else if (i >= 10)
+        {
+            medal.sprite = medals[2];
+        }
+        else if (i >= 5)
+        {
+            medal.sprite = medals[1];
+        }
+        else
+        {
+            medal.sprite = medals[0];
+        }
+
         if (PlayerPrefs.GetInt("bestScore") < i)
         {
             PlayerPrefs.SetInt("bestScore", i);
