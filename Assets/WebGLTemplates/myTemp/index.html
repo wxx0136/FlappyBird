@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-us">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | FlappyBird</title>
+    <title>Unity WebGL Player | %UNITY_WEB_NAME%</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <script src="TemplateData/UnityProgress.js"></script>
-    <script src="Build/UnityLoader.js"></script>
+    <script src="%UNITY_WEBGL_LOADER_URL%"></script>
     <script>
-        var unityInstance = UnityLoader.instantiate("unityContainer", "Build/docs.json", {onProgress: UnityProgress});
+        var unityInstance = UnityLoader.instantiate("unityContainer", "%UNITY_WEBGL_BUILD_URL%", {onProgress: UnityProgress});
     </script>
 </head>
 <body>
@@ -18,10 +18,10 @@
     <a href="https://github.com/wxx0136/FlappyBird">Source Code</a>
 </div>
 <div class="webgl-content">
-    <div id="unityContainer" style="width: 480px; height: 854px"></div>
+    <div id="unityContainer" style="width: %UNITY_WIDTH%px; height: %UNITY_HEIGHT%px"></div>
     <div class="footer">
         <div class="webgl-logo"></div>
-        <div class="title">FlappyBird</div>
+        <div class="title">%UNITY_WEB_NAME%</div>
     </div>
 </div>
 </body>
