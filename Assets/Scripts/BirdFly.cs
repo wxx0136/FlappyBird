@@ -36,17 +36,17 @@ public class BirdFly : MonoBehaviour
     }
 
 
-    public void ChangeState(bool isFlying)
+    public void ChangeState(bool isFlying, bool isSim = false)
     {
         if (isFlying)
         {
             animator.SetInteger(State, 0);
-            rb2d.simulated = true;
         }
         else
         {
             animator.SetInteger(State, 1);
-            rb2d.simulated = false;
         }
+
+        rb2d.simulated = isSim;
     }
 }

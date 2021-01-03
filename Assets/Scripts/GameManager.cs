@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -6,6 +7,7 @@ public class GameManager : MonoBehaviour
     public GameObject main;
     public GameObject tutorial;
     public GameObject score;
+    public GameObject gameOverPanel;
 
     public GameObject bird;
 
@@ -16,17 +18,22 @@ public class GameManager : MonoBehaviour
 
     public Text scoreText;
 
+    public Text currentScoreText;
+    public Text bestScoreText;
+    public GameObject newScore;
+
     private void Start()
     {
         _birdFly = bird.GetComponent<BirdFly>();
-        _uiManager = tutorial.GetComponent<UIManager>();
     }
 
     public void PlayBtnClick()
     {
-        main.GetComponent<UIManager>().HideUI();
-        tutorial.GetComponent<UIManager>().ShowUI();
-        score.GetComponent<UIManager>().ShowUI();
+        Tools.Instance.HideUI(main);
+        Tools.Instance.ShowUI(tutorial);
+        Tools.Instance.ShowUI(score);
+
+        _birdFly.ChangeState(true);
         isGameReady = true;
     }
 
@@ -37,8 +44,9 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            _uiManager.HideUI();
-            _birdFly.ChangeState(true);
+            Tools.Instance.HideUI(tutorial);
+
+            _birdFly.ChangeState(true, true);
             _birdFly.Fly();
             isGameStart = true;
         }
@@ -46,17 +54,35 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        if(!isGameStart) return;
-        
+        if (!isGameStart) return;
+
         isGameReady = false;
         isGameStart = false;
 
         GameObject.Find("PillarController").GetComponent<PillarController>().StopMove();
-        GameObject.Find("bg_container").GetComponent<BgController>().isMove = false;
+        GameObject.Find("BGContainer").GetComponent<BgController>().isMove = false;
+
+        Tools.Instance.ShowUI(gameOverPanel);
+        Tools.Instance.HideUI(score);
+
+        var i = int.Parse(scoreText.text);
+        if (PlayerPrefs.GetInt("bestScore") < i)
+        {
+            PlayerPrefs.SetInt("bestScore", i);
+            newScore.SetActive(true);
+        }
+
+        currentScoreText.text = i.ToString();
+        bestScoreText.text = PlayerPrefs.GetInt("bestScore").ToString();
     }
 
     public void GetScore()
     {
         scoreText.text = (int.Parse(scoreText.text) + 1).ToString();
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("GameScene");
     }
 }
