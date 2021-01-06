@@ -6,5 +6,5 @@ Live Demo: https://wxx0136.github.io/FlappyBird/
 # Contents
 
 <div align=center>
-<img src="https://wxx0136.github.io/RRC_Portfolio/static/3ca775d58f20d32a2ba84ebcdf0ad556/43fa5/project_u3d.png">
+<img src="https://github.com/wxx0136/FlappyBird/blob/main/docs/project_u3d.png">
 </div>
