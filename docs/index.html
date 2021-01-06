@@ -12,13 +12,29 @@
     <script>
         var unityInstance = UnityLoader.instantiate("unityContainer", "Build/docs.json", {onProgress: UnityProgress});
     </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PEV8ERWH2L"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-PEV8ERWH2L');
+    </script>
+
 </head>
 <body>
 <div class="skew">
     <div class="content">
         <div class="description">
             <h1>Unity3d: Flappy Bird</h1>
-            <p>I use Unity3d to remaster a famous mobile game - Flappy Bird. The development process helps me to review the C# and game engine knowledge. And I deploy a Gameplay Demo on Github Pages to master more CI/CD skills.</p>
+            <p>I use Unity3d to remaster a famous mobile game - Flappy Bird. The development process helps me to review
+                the C# and game engine knowledge. And I deploy a Gameplay Demo on Github Pages to master more CI/CD
+                skills.</p>
             <a href="https://github.com/wxx0136/FlappyBird">
                 <h3>
                     <div class="link_jump">Source Code</div>
