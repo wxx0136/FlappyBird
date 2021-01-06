@@ -3,7 +3,7 @@ I use Unity3d to remaster a famous mobile game - Flappy Bird. The development pr
 
 Live Demo: https://wxx0136.github.io/FlappyBird/
 
-# Contents
+# Screenshot
 
 <div align=center>
 <img src="https://github.com/wxx0136/FlappyBird/blob/main/docs/project_u3d.png">
